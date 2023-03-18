@@ -16,5 +16,6 @@ Aucune installation n'est nécessaire pour exécuter le programme. Il suffit d'o
 ## Contribution
 
 Les contributions sont les bienvenues. N'hésitez pas à faire des pull requests ou à ouvrir des issues pour discuter des améliorations à apporter au programme.
-##Licence
-Le programme est sous licence APACHE, consultez le fichier LICENSE pour plus d'informations.
+## Licence
+
+Le programme est sous licence APACHE 2.0, consultez le fichier LICENSE pour plus d'informations.
