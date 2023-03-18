@@ -1,4 +1,5 @@
-Pendule simple
+Programme objectif  :  Pendule simple 
+Language utiliser   : JavaScript
 ## Description
 
 Le programme simule le comportement d'un pendule simple en utilisant la méthode de Euler pour résoudre l'équation différentielle qui gouverne le mouvement.
