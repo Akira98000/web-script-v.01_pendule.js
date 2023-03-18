@@ -1,0 +1,82 @@
+<!-- author : @akirasanthakumaran, created the 18:03:22 at 6pm-->
+<html>
+  <body>
+    <svg viewBox="-100 -100 200 200" style="width:80vmin;height:80vmin;cursor:pointer;overflow:visible;display:block;margin:auto;">
+      <g id="scene" transform="scale(1,-1)">
+        <g id="pendule" fill="red" stroke="black">
+          <line x1="0" y1="0" x2="0" y2="-80"/>
+          <circle cx="0" cy="-80" r="20"/>
+        </g>
+      </g>
+    </svg>
+    <div id="energie_pendule"></div>
+    <script>
+      /** CREATION DES VARIABLES **/
+
+      var pendule = document.getElementById("pendule"); // On récupère notre pendule depuis la balise g 
+      var alpha = Math.PI/2; // C'est l'angle initial
+      var omega = 0; // C'est la vitesse initiale
+      var k = 1; // Comportement du pendule définit par défaut = 1
+      pendule.style.setProperty("transform", "rotate("+alpha+"rad)");
+      var delta_temps = 1.e-1; 
+      var energie_pendule = 1/2 * omega * omega - k * Math.cos(alpha);
+      var maxEnergy = 0;
+      var minEnergy = 0;
+      document.getElementById("energie_pendule").innerHTML = " -> Cliquez la balle rouge pour démarrer ";
+
+      // Mise à jour du système 
+      var run = false; // Utilisation de var au lieu de let pour une meilleure compatibilité avec les anciens navigateurs
+
+      function update() {
+        /* 
+          LA METHODE DE EULER (SEMI-EXPLICIT):
+
+            -> ωn+1−ωn / ∆t = - −k sin(αn) pour tout n>= 0
+            -> αn+1−αn / ∆t = ωn+1 pour tout 
+
+            ici cette methode est implémenté sous la forme :
+            
+                var new_omega = omega - delta_temps * k * Math.sin(alpha);
+                var new_alpha = alpha + delta_temps * new_omega;
+                omega = new_omega;
+                alpha = new_alpha;
+        */
+
+        // Ici on calcule la nouvelle vitesse & l'angle
+        var new_omega = omega - delta_temps * k * Math.sin(alpha);
+        var new_alpha = alpha + delta_temps * new_omega;
+
+        // Ici on met à jour la vitesse et l'angle
+        omega = new_omega;
+        alpha = new_alpha;
+        pendule.style.setProperty("transform", "rotate("+alpha+"rad)");
+
+        // On calcule la nouvelle valeur de l'énergie :
+        energie_pendule = 0.5 * omega * omega - k * Math.cos(alpha);
+
+        // Crée juste pour le test
+        maxEnergy = Math.max(maxEnergy,energie_pendule);
+        minEnergy = Math.min(minEnergy,energie_pendule);
+       
+
+        // Affichage de la valeur sur le HTML
+        document.getElementById("energie_pendule").innerHTML = "Energie du pendule : "+energie_pendule+"<br> Valeur maximale de l'énergie: "+maxEnergy+"<br> Valeur minimale de l'énergie : "+minEnergy;
+        if (run) {
+          setTimeout(update, 40);
+        }
+      }
+
+      // Fonction démarrage ou stoppage du programme
+      function stop_and_go() {
+        if (run) {
+          run = false;
+        } else {
+          run = true;
+          update();
+        }
+      }
+
+      document.addEventListener("click", stop_and_go);
+    </script>
+  </body>
+</html>
