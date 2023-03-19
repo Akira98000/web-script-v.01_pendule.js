@@ -1,8 +1,6 @@
 Programme objectif  :  Pendule simple 
 Language utiliser   : JavaScript
 
-![pendule](https://user-images.githubusercontent.com/59121834/226168133-f6364d2f-8f60-4e5f-9474-9f360fa619e2.gif)
-
 ## Description
 
 Le programme simule le comportement d'un pendule simple en utilisant la méthode de Euler pour résoudre l'équation différentielle qui gouverne le mouvement.
