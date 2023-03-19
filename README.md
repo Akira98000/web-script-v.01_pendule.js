@@ -1,10 +1,7 @@
 Programme objectif  :  Pendule simple 
 Language utiliser   : JavaScript
 
-
-![pendule](https://user-images.githubusercontent.com/59121834/226165085-3ac3456d-6cdc-4e3e-a12a-1ef520742f03.gif)
-
-
+![pendule](https://user-images.githubusercontent.com/59121834/226168133-f6364d2f-8f60-4e5f-9474-9f360fa619e2.gif)
 
 ## Description
 
