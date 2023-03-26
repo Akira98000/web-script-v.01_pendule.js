@@ -5,7 +5,7 @@ Language utiliser   : JavaScript
 
 Le programme simule le comportement d'un pendule simple en utilisant la méthode de Euler pour résoudre l'équation différentielle qui gouverne le mouvement.
 
-##Fonctionnement
+## Fonctionnement
 
 Le programme utilise une balise SVG pour afficher la représentation graphique du pendule et calcule la position de la masse du pendule en fonction du temps.
 
